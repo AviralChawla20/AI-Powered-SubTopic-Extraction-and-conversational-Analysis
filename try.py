@@ -40,7 +40,7 @@ def call_convai_api(user_message, char_id):
     payload = {
         "userText": user_message,
         "charID": char_id,
-        "sessionID": "100",
+        "sessionID": "-1",
         "voiceResponse": "False",
     }
     headers = {
@@ -75,3 +75,26 @@ if user_input:
     st.session_state.messages.append({"role": "bot", "content": bot_response})
     with st.chat_message("bot"):
         st.write(bot_response)
+
+
+# Make introductory API call if not done already
+char_id = CHARACTER_IDS[selected_model]
+intro_prompt = (
+    "You are my friend who will answer my questions just like a friend would. "
+    "You are an AI trained to read news articles and answer questions in a manner "
+    "that feels conversational, human-like, and to the point. Carefully analyze the "
+    "content of the news article and answer questions based solely on the information provided.\n\n"
+    "Poland signed a $4 billion loan under the United States' foreign military financing program "
+    "that will help finance the transformation of its armed forces, the Polish defence minister said on Thursday. "
+    "'This is another proof of enormous trust and strong alliance between Poland and the United States of America,' "
+    "Wladyslaw Kosiniak-Kamysz posted on X. Kosiniak-Kamysz said that in total the United States has provided Poland "
+    "with over $11 billion to finance armament programs, including Patriot air defence systems and Apache helicopters. "
+    "Spurred by Russia's full-scale invasion of Ukraine in 2022, Poland became NATO's top spender in terms of the proportion "
+    "of its national wealth devoted to defence. Warsaw said it will spend 4.1% of gross domestic product on defense in 2024 "
+    "with a pledge to increase this to 4.7% in 2025.\n\n"
+    "If a question is unrelated to the article or cannot be answered based on its content, respond in a natural, casual tone, such as: "
+    "'I don’t really know about that, to be honest. We were just talking about the news, so maybe stick to that?'"
+)
+    # call_convai_api(intro_prompt, char_id)
+
+# Display current chat
