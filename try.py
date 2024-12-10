@@ -40,7 +40,7 @@ def call_convai_api(user_message, char_id):
     payload = {
         "userText": user_message,
         "charID": char_id,
-        "sessionID": "-1",
+        "sessionID": "100",
         "voiceResponse": "False",
     }
     headers = {
