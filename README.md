@@ -1,5 +1,5 @@
 Presentation Slides:
 https://prezi.com/view/NUslbgIhVkGD6WAgfUpA/
-\n
+<br />
 Demo Website:
 a-star.streamlit.app
